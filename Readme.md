@@ -33,8 +33,10 @@ The program uses MediaPipe to detect hand landmarks from the webcam feed. It spe
 
 Install the required libraries before running the project:
 
+Windows only (volume is controlled through PyCAW). Python 3.9–3.11 recommended.
+
 ```
-pip install opencv-python mediapipe numpy pycaw comtypes
+pip install -r requirements.txt
 ```
 
 ## How to Run
@@ -47,13 +49,19 @@ pip install opencv-python mediapipe numpy pycaw comtypes
 python volume_control.py
 ```
 
+Optional flags: `--camera 1` (use another webcam), `--no-mirror` (disable mirrored view).
+
 4. Show your hand to the webcam and move your **thumb and index finger** closer or farther apart to control the system volume.
 
 ## Controls
 
 * Increase distance between thumb and index finger → Increase volume
 * Decrease distance between thumb and index finger → Decrease volume
-* Press **ESC** to exit the program
+* Press **ESC** or **Q** (or close the window) to exit the program
+
+## Tuning
+
+At the top of `volume_control.py` you can adjust `MIN_RATIO` / `MAX_RATIO` (pinch range) and `SMOOTHING` (lower = smoother, higher = more responsive).
 
 ## Use Cases
 
